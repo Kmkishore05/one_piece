@@ -119,7 +119,7 @@ export const Footer: React.FC = () => {
 
           {/* Image */}
           <img
-            src="/pirateking.png"
+            src="public\pirateking.png"
             alt="Pirate King"
             className="max-w-[95%] md:max-w-5xl rounded-xl shadow-[0_0_60px_rgba(255,215,0,0.4)] animate-fadeIn"
             onClick={(e) => e.stopPropagation()}
