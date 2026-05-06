@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ocean-dark: #0B132B;
+  --color-ocean-navy: #1C2541;
+  --color-ocean-blue: #3A506B;
+  --color-ocean-cyan: #5BC0BE;
+  --color-pirate-gold: #FFD166;
+  --color-pirate-red: #E63946;
+}
+
+/* Custom global animations and scrollbars */
+html, body {
+  background-color: #0B132B;
+  color: #F8FAFC;
+  font-family: 'Cinzel', 'Georgia', 'Inter', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0B132B;
+}
+::-webkit-scrollbar-thumb {
+  background: #3A506B;
+  border-radius: 5px;
+  border: 2px solid #0B132B;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFD166;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(28, 37, 65, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 209, 102, 0.15);
+}
+
+.glass-panel-dark {
+  background: rgba(11, 19, 43, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(230, 57, 70, 0.2);
+}
+
+/* Text glow */
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(255, 209, 102, 0.6), 0 0 20px rgba(255, 209, 102, 0.3);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(91, 192, 190, 0.6), 0 0 20px rgba(91, 192, 190, 0.3);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 12px rgba(230, 57, 70, 0.7), 0 0 25px rgba(230, 57, 70, 0.4);
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1.5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float-ship {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes cloud-drift {
+  0% { transform: translateX(-10%); }
+  100% { transform: translateX(110%); }
+}
+
+.animate-cloud-slow {
+  animation: cloud-drift 80s linear infinite;
+}
+
+.animate-cloud-fast {
+  animation: cloud-drift 40s linear infinite;
+}
+
+/* Particle effect container */
+.particle-container {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Background Image Utilities for One Piece Theme */
+.bg-hero-ocean {
+  background-image: linear-gradient(rgba(11, 19, 43, 0.75), rgba(11, 19, 43, 0.85)), url('/images/hero-ocean.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.bg-parchment {
+  background-image: linear-gradient(rgba(28, 37, 65, 0.92), rgba(28, 37, 65, 0.95)), url('/images/parchment.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-smoke-dark {
+  background-image: linear-gradient(rgba(11, 19, 43, 0.85), rgba(11, 19, 43, 0.9)), url('/images/smoke-dark.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-map-texture {
+  background-image: linear-gradient(rgba(11, 19, 43, 0.75), rgba(28, 37, 65, 0.8)), url('/images/grandline-map.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-devil-fruit {
+  background-image: linear-gradient(rgba(11, 19, 43, 0.88), rgba(28, 37, 65, 0.92)), url('/images/hero-ocean.jpg');
+  background-size: cover;
+  background-position: center 30%;
+}
+
+.bg-crew {
+  background-image: linear-gradient(rgba(11, 19, 43, 0.85), rgba(11, 19, 43, 0.9)), url('/images/hero-ocean.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Performance optimized layered backgrounds */
+.bg-layer {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  will-change: transform;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #FFD166;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.custom-cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #E63946;
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Comic dialogue box style */
+.comic-box {
+  position: relative;
+  border: 3px solid #FFD166;
+  background: #1C2541;
+  box-shadow: 6px 6px 0px #E63946;
+}
+
+.comic-box::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 30px;
+  border-width: 15px 15px 0;
+  border-style: solid;
+  border-color: #FFD166 transparent;
+  display: block;
+  width: 0;
+}
