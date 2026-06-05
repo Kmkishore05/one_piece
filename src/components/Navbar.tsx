@@ -42,6 +42,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavClick }) => {
     { label: 'Devil Fruits', id: 'fruits' },
     { label: 'Grand Line Map', id: 'worldmap' },
     { label: 'Villains', id: 'villains' },
+    { label: 'Characters', id: 'Characters' }, 
     
   ];
 
