@@ -8,7 +8,7 @@ import { CrewSection } from './components/CrewSection';
 import { DevilFruitsSection } from './components/DevilFruitsSection';
 import { WorldMapSection } from './components/WorldMapSection';
 import { VillainsSection } from './components/VillainsSection';
-// import { DocumentationTab } from './components/DocumentationTab';
+import { CharacterSection } from './components/CharacterSection';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -47,7 +47,7 @@ export default function App() {
         
         <VillainsSection />
 
-        {/* <DocumentationTab /> */}
+         <CharacterSection/> 
       </main>
 
       {/* Final Sea Gate Footer */}
