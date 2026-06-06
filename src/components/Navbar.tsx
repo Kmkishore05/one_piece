@@ -37,20 +37,29 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavClick }) => {
   };
 
   const menuItems = [
-    { label: 'The Lore', id: 'lore' },
-    { label: 'Straw Hats', id: 'strawhats' },
-    { label: 'Devil Fruits', id: 'fruits' },
-    { label: 'Grand Line Map', id: 'worldmap' },
-    { label: 'Villains', id: 'villains' },
-    { label: 'Characters', id: 'Characters' }, 
-    
-  ];
+  { label: 'The Lore', id: 'lore' },
+  { label: 'Straw Hats', id: 'strawhats' },
+  { label: 'Devil Fruits', id: 'fruits' },
+  { label: 'Grand Line Map', id: 'worldmap' },
+  { label: 'Villains', id: 'villains' },
+  {
+    label: 'Characters',
+    external: 'https://characters-steel.vercel.app/',
+  },
+];
 
-  const handleLink = (id: string) => {
-    audioSynth.playClickSound();
-    onNavClick(id);
+  const handleLink = (item: any) => {
+  audioSynth.playClickSound();
+
+  if (item.external) {
+    window.open(item.external, '_blank');
     setMobileMenuOpen(false);
-  };
+    return;
+  }
+
+  onNavClick(item.id);
+  setMobileMenuOpen(false);
+};
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'glass-panel py-3 shadow-lg' : 'bg-gradient-to-b from-[#0B132B]/80 to-transparent py-5'}`}>
@@ -80,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavClick }) => {
           {menuItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => handleLink(item.id)}
+              onClick={() => handleLink(item)}
               className="text-sm font-medium text-slate-300 hover:text-[#FFD166] transition-colors duration-200 cursor-pointer relative py-1 group uppercase tracking-wider"
               onMouseEnter={() => audioSynth.playHoverSound()}
             >
@@ -121,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavClick }) => {
           {menuItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => handleLink(item.id)}
+              onClick={() => handleLink(item)}
               className="text-left py-2 font-medium text-slate-200 hover:text-[#FFD166] border-b border-slate-800/50 uppercase text-sm tracking-wide"
             >
               {item.label}
